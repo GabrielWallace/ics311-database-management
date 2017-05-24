@@ -42,26 +42,30 @@ create table line(
     foreign key(inv_number) references invoice(inv_number), 
     foreign key(prod_code) references product(prod_code));
 
-
+/* cus_code, cus_lname, cus_fname, cus_initial, cus_areacode, cus_phone */
 insert into customer values (10010, "Ramas", "Alfred", 'A', 615, 8442573);
 insert into customer values (10011, "Dunne", "Leona", 'K', 713, 8941238);
 insert into customer values (10012, "Smith", "Kathy", 'W', 615, 8942285);
 insert into customer values (10013, "Olowski", "Paul", 'F', 615, 2221672);
 insert into customer values (10014, "Orlando", "Myron", NULL, 615, 2971228);
 
+/* inv_number, cus_code, inv_date */
 insert into invoice values (1001, 10011, '2008-08-03');
 insert into invoice values (1002, 10014, '2008-08-04');
 insert into invoice values (1003, 10012, '2008-03-20');
 insert into invoice values (1004, 10011, '2008-09-23');
 
+/* vend_code, vend_name, vend_contact, vend_areacode, vend_phone */
 insert into vendor values (232, "Bryson", "Smith", 615, 2233234);
 insert into vendor values (235, "SuperLoo", "Anderson", 615, 2158995);
 
+/* prod_code, prod_desc, prod_price, prod_quant, vend_code */
 insert into product values (12321, "hammer", 189 ,20, 232);
 insert into product values (65781, "chain", 12, 45, 235);
 insert into product values (34256, "tape", 35, 60, 235);
 insert into product values (12333, "hanger", 200 ,10, 232);
 
+/* inv_number, prod_code, line_units */
 insert into line values (1001, 12321, 1);
 insert into line values (1001, 65781, 3);
 insert into line values (1002, 34256, 6);
